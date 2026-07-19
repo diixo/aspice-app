@@ -1,88 +1,64 @@
 /* Fonts */
 @import url('../assets/css/fonts/public-sans/public-sans.css');
 
-/*
-@import url('../assets/css/fonts/noto-sans/noto-sans.css');
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap');
-*/
+/* -- Project colour palette ------------------------------------------------ */
+:root {
+  /* -- Primary (blue) ----------------------- */
+  --clr-primary:       #1971c2;
+  --clr-primary-bg:    #e7f5ff;
+  --clr-primary-dark:  #1864ab;
+  --clr-primary-hover: #d0ebff;
+
+  /* -- Text --------------------------------- */
+  --clr-text:          #212529;
+  --clr-text-secondary:#495057;
+  --clr-text-muted:    #6c757d;
+  --clr-text-faint:    #868e96;
+  --clr-text-strong:   #1a1a1a;
+
+  /* -- Surface / borders -------------------- */
+  --clr-border:        #dee2e6;
+  --clr-surface:       #f8f9fa;
+  --clr-surface-mid:   #f1f3f5;
+  --clr-surface-dark:  #e9ecef;
+
+  /* -- Semantic: orange (dynamic/warning) --- */
+  --clr-orange:        #e8590c;
+  --clr-orange-accent: #fd7e14;
+  --clr-orange-bg:     #fff4e6;
+  --clr-amber:         #b27300;
+  --clr-amber-bg:      #fff8e1;
+
+  /* -- Semantic: purple (analysis/decision) - */
+  --clr-purple:        #5f3dc4;
+  --clr-purple-bg:     #f3f0ff;
+
+  /* -- Semantic: green (success/traceability) */
+  --clr-green:         #2b8a3e;
+  --clr-green-bg:      #d3f9d8;
+  --clr-green-bg-light:#ebfbee;
+
+  /* -- Semantic: pink (modes/critical) ------ */
+  --clr-pink:          #a61e4d;
+  --clr-pink-bg:       #fff0f6;
+
+  /* -- Highlight ---------------------------- */
+  --clr-highlight:     #f59f00;
+  --clr-highlight-bg:  #fff3bf;
+
+  --brand-blue: #0091da;
+  --brand-blue-rgb: 0, 145, 218;
+
+  --brand-link: #0052cc;
+  --brand-link-rgb: 0, 82, 204;
+}
+
 
 body {
   font-size: 16px;
-  /*font-family: 'Noto Sans', sans-serif;*/
   font-family: 'Public Sans', sans-serif;
   font-weight: 400;
-}
-
-.bi {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-}
-
-.btn-bd-primary {
-  --bd-violet-bg: #712cf9;
-  --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-  --bs-btn-font-weight: 600;
-  --bs-btn-color: var(--bs-white);
-  --bs-btn-bg: var(--bd-violet-bg);
-  --bs-btn-border-color: var(--bd-violet-bg);
-  --bs-btn-hover-color: var(--bs-white);
-  --bs-btn-hover-bg: #6528e0;
-  --bs-btn-hover-border-color: #6528e0;
-  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-  --bs-btn-active-color: var(--bs-btn-hover-color);
-  --bs-btn-active-bg: #5a23c8;
-  --bs-btn-active-border-color: #5a23c8;
-}
-
-/*
- * Sidebar
- */
-
-@media (min-width: 768px) {
-  .sidebar .offcanvas-lg {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 48px;
-  }
-  .navbar-search {
-    display: block;
-  }
-}
-
-.sidebar .nav-link {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: rgba(33, 37, 41, 0.75);
-}
-
-.sidebar .nav-link.active {
-  color: #0091DA;
-}
-
-.sidebar .nav-link:hover {
-  color: #0091DA;
-}
-
-
-.sidebar-heading {
-  font-size: .75rem;
-}
-
-/*
- * Navbar
- */
-
-.navbar-brand {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  background-color: rgb(255, 255, 255);
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
-}
-
-.navbar .form-control {
-  padding: .75rem 1rem;
 }
 
 
@@ -104,26 +80,14 @@ body {
   }
 }
 
-.b-example-divider {
-  width: 100%;
-  height: 3rem;
-  background-color: #0000001a;
-  border: solid rgba(0, 0, 0, 0.15);
-  border-width: 1px 0;
-  box-shadow:
-    inset 0 0.5em 1.5em #0000001a,
-    inset 0 0.125em 0.5em #00000026;
-}
-
-.b-example-vr {
-  flex-shrink: 0;
-  width: 1.5rem;
-  height: 100vh;
-}
-
 .bi {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
   vertical-align: -0.125em;
   fill: #505050;
+  stroke: #505050;
+  stroke-width: 0.5;
 }
 
 .nav-scroller {
@@ -144,30 +108,137 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+.btn-bd-primary {
+  --bd-violet-bg: #712cf9;
+  --bd-violet-rgb: 113, 44, 249;
+  --bs-btn-font-weight: 500;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-violet-bg);
+  --bs-btn-border-color: var(--bd-violet-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #6528e0;
+  --bs-btn-hover-border-color: #6528e0;
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #5a23c8;
+  --bs-btn-active-border-color: #5a23c8;
+}
+
+.btn-blue {
+  --bd-blue-bg: var(--brand-blue);
+  --bd-blue-rgb: var(--brand-blue-rgb);
+  --bs-btn-font-weight: 500;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-blue-bg);
+  --bs-btn-border-color: var(--bd-blue-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #0088d0;
+  --bs-btn-hover-border-color: #0088d0;
+  --bs-btn-focus-shadow-rgb: var(--bd-blue-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #0078b8;
+  --bs-btn-active-border-color: #0078b8;
+}
+
 /*
-  Sidebar and main content full height (base.html)
-  */
-
-html,
-body {
-  height: 100%;
-  min-height: 100%;
+ * Main content
+ * Account for the 48px sticky header so the page doesn't get a phantom
+ * ~48px vertical scroll (the old `min-vh-100` made <main> a full 100vh
+ * *below* the header, overflowing the viewport by the header's height).
+ */
+main {
+  min-height: calc(100vh - 48px);
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/*
+ * Sidebar
+ */
+
+@media (min-width: 768px) {
+  .sidebar .offcanvas-md {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px;
+    height: calc(100vh - 48px);
+    overflow-y: auto;
+  }
+
+  .sidebar .offcanvas-body {
+    height: 100%;
+  }
+
+  /* Must match the specificity of Bootstrap's `.collapse:not(.show){display:none}`
+     (0,2,0) so the search field is shown on desktop; loaded after Bootstrap it
+     then wins by source order. A plain `.navbar-search` (0,1,0) loses to it. */
+  .navbar-search.collapse {
+    display: block;
+  }
 }
 
-.app-full-height {
-  flex: 1 1 auto;
-  min-height: 0;
+.sidebar .nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(33, 37, 41, 0.75);
 }
 
-.app-full-height .row,
-.app-full-height .sidebar,
-.app-full-height main {
-  min-height: 0;
-  height: 100%;
+.sidebar .nav-link.active {
+  color: var(--brand-blue);
 }
+
+.sidebar .nav-link.active::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--brand-blue);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+
+.sidebar .nav-link:hover {
+  color: var(--brand-blue);
+}
+
+
+.sidebar-heading {
+  font-size: .75rem;
+}
+
+/* Sidebar-only scrollbar styling */
+.sidebar .offcanvas-md {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(108, 117, 125, .55) transparent;
+}
+
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+}
+
+
+.navbar-search .form-control:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
