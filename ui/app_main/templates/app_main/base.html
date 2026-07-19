@@ -127,19 +127,20 @@
 
             <div class="offcanvas-body d-md-flex flex-column p-3 overflow-y-auto">
 
+              {% with u=request.resolver_match.url_name %}
               <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center gap-2 {% if request.resolver_match.url_name in 'aispice lifecycle_scenario feature_timeline' %}active{% endif %}"
+                  <a class="nav-link d-flex align-items-center gap-2 {% if u in 'aispice lifecycle_scenario feature_timeline' %}active{% endif %}"
                     href="{% url 'app_main:aispice' %}">
                     <span class="material-icons">checklist</span>
                     ASPICE
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center gap-2 {% if request.resolver_match.url_name == 'codebeamer' %}active{% endif %}"
-                    href="{% url 'app_main:codebeamer' %}">
+                  <a class="nav-link d-flex align-items-center gap-2 {% if u == 'report' %}active{% endif %}"
+                    href="{% url 'app_main:report' %}">
                     <span class="material-icons">add_chart</span>
-                    Codebeamer
+                    Report
                   </a>
                 </li>
               </ul>
@@ -173,6 +174,7 @@
                   </a>
                 </li>
               </ul>
+              {% endwith %}
             </div>
           </div>
         </div>
