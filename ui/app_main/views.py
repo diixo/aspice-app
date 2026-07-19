@@ -157,7 +157,7 @@ def _collect_aspice_counts(dataset):
 
 
 def codebeamer(request):
-    return render(request, "app_main/codebeamer.html", context={
+    return render(request, "app_main/report.html", context={
         "title": "AI-delix - Codebeamer",
         "description": "Codebeamer integration",
     })
