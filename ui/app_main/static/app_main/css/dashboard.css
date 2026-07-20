@@ -175,37 +175,78 @@ main {
   }
 }
 
+/*
+ * Sidebar nav items — active indicator adapted from preview.html.
+ * The active item gets a subtle background, bold text and a vertical
+ * indicator bar that protrudes to the left of the item.
+ */
+.sidebar {
+  --nav-item-radius: 6px;
+  --nav-item-hover-bg: #f4f4f4;
+  --nav-item-active-bg: rgba(13, 110, 253, 0.1); /* bg-primary bg-opacity-10 */
+  --nav-item-active-color: var(--brand-blue);
+
+  --nav-indicator-width: 4px;
+  --nav-indicator-height: 24px;
+  --nav-indicator-offset: 8px;
+  --nav-indicator-radius: 6px;
+  --nav-indicator-color: var(--brand-blue);
+
+  /* Иконки пунктов остаются приглушённо-серыми независимо от состояния
+     (active / hover), как в sidebar-github-menu-icon.html.
+     --bs-secondary — серый токен Bootstrap (#6c757d), подхватывает тему. */
+  --nav-icon-color: var(--bs-secondary);
+}
+
 .sidebar .nav-link {
+  position: relative;
   font-size: 0.875rem;
   font-weight: 500;
   color: rgba(33, 37, 41, 0.75);
+  border-radius: var(--nav-item-radius);
+  transition:
+    color 80ms linear,
+    background-color 80ms linear;
+}
+
+.sidebar .nav-link:hover {
+  /* color: var(--brand-blue); */
+  background-color: var(--nav-item-hover-bg);
 }
 
 .sidebar .nav-link.active {
-  background-color: rgba(13, 110, 253, 0.1); /*bg-primary bg-opacity-10*/
-  color: var(--brand-blue);
-  /*
-  border-color: rgba(59, 130, 246, 0.2) !important;
-  border: 1px solid;
-  border-radius: 0.375rem;
-  */
+  background-color: var(--nav-item-active-bg);
+  color: rgb(37, 41, 46);
+  font-weight: 600;
 }
 
+/*
+  Цвет иконки задаётся явно на самом элементе, поэтому он НЕ наследует
+  цвет текста пункта и остаётся одинаковым для обычного, hover и active
+  состояний. Меняется только фон, жирность текста и левый индикатор.
+*/
+.sidebar .nav-link .material-icons {
+  color: var(--nav-icon-color);
+}
+
+/*
+  Активная боковая плашка-индикатор:
+  - вынесена влево за границу item на --nav-indicator-offset;
+  - ширина 4px, высота 24px;
+  - центрирована по вертикали, полностью скруглена;
+  - не участвует в layout.
+*/
 .sidebar .nav-link.active::after {
   content: '';
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--brand-blue);
-  margin-left: auto;
-  flex-shrink: 0;
-}
-
-
-.sidebar .nav-link:hover {
-  color: var(--brand-blue);
-  background-color: #f4f4f4;
+  position: absolute;
+  top: 50%;
+  left: calc(-1 * var(--nav-indicator-offset));
+  width: var(--nav-indicator-width);
+  height: var(--nav-indicator-height);
+  background-color: var(--nav-indicator-color);
+  border-radius: var(--nav-indicator-radius);
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 
