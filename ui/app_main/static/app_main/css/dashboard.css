@@ -140,6 +140,22 @@ body {
   --bs-btn-active-border-color: #0078b8;
 }
 
+.btn-main {
+  --bd-blue-bg: #5340ff;
+  --bd-blue-rgb: 83, 64, 255;
+  --bs-btn-font-weight: 500;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-blue-bg);
+  --bs-btn-border-color: var(--bd-blue-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #3532db;
+  --bs-btn-hover-border-color: #3532db;
+  --bs-btn-focus-shadow-rgb: var(--bd-blue-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #3532db;
+  --bs-btn-active-border-color: #3532db;
+}
+
 /*
  * Main content
  * Account for the 48px sticky header so the page doesn't get a phantom
@@ -195,7 +211,7 @@ main {
   /* Иконки пунктов остаются приглушённо-серыми независимо от состояния
      (active / hover), как в sidebar-github-menu-icon.html.
      --bs-secondary — серый токен Bootstrap (#6c757d), подхватывает тему. */
-  --nav-icon-color: var(--bs-secondary);
+  --nav-icon-color: #707070; /* var(--bs-secondary) */
 }
 
 .sidebar .nav-link {
